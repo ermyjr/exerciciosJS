@@ -1,0 +1,26 @@
+const companies =[
+    {name:'samsung', marketValue: 50, CEO: 'Kim Hyum Suk', foundedOn: 1938},
+    {name:'Microsoft', marketValue: 415, CEO: 'Kim Satya Nadella Suk', foundedOn: 1975},
+    {name:'intel', marketValue: 117, CEO: 'Brian Krzanich', foundedOn: 1968},
+    {name:'Facebook', marketValue: 383, CEO: 'Mark Zuckerberg', foundedOn: 2004},
+    {name:'spotify', marketValue: 30, CEO: 'Daniel Ek', foundedOn: 2006},
+    {name:'apple', marketValue: 845, CEO: 'Tim Cook', foundedOn: 1976}];
+
+    const add10PercentMarketValue = company =>{
+
+        company.marketValue = company.marketValue + company.marketValue/10
+
+        return company
+    }
+
+    const oldCompanies = company => company.foundedOn <2000
+
+    const allOldCompaniesMarketValue = (acc, company) => acc+ company.marketValue
+
+    const myBestCompanies = companies
+        .map(add10PercentMarketValue)
+        .filter(oldCompanies)
+        .reduce(allOldCompaniesMarketValue,0)
+
+
+        console.log(myBestCompanies)
